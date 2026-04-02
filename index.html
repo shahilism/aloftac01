@@ -28,6 +28,9 @@
     rel="stylesheet"
   />
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
 
     /* ============================================================
@@ -45,6 +48,21 @@
       --text:        #d8efeb;
       --muted:       #7aaba4;
       --white:       #f5fffd;
+    }
+
+    /* Light theme variables */
+    :root[data-theme="light"] {
+      --teal:        #1a7a6e;
+      --teal-light:  #22a090;
+      --teal-glow:   #2ecfba;
+      --dark:        #f5fffd;
+      --darker:      #e8f8f5;
+      --mid:         #d1f0ea;
+      --surface:     #ffffff;
+      --surface2:    #f0f9f7;
+      --text:        #0d1a18;
+      --muted:       #5a7a74;
+      --white:       #0d1a18;
     }
 
     /* ============================================================
@@ -164,6 +182,33 @@
 
     .nav-cta:hover      { background: var(--teal-light) !important; }
     .nav-cta::after     { display: none !important; }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background:     transparent;
+      border:         1px solid rgba(34, 160, 144, 0.25);
+      border-radius:  50%;
+      width:          40px;
+      height:         40px;
+      color:          var(--muted);
+      cursor:         none;
+      font-size:      1rem;
+      transition:     all 0.25s;
+      display:        flex;
+      align-items:    center;
+      justify-content: center;
+      margin-left:    1rem;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--teal-glow);
+      color:        var(--teal-glow);
+      background:   rgba(46, 207, 186, 0.08);
+    }
+
+    .theme-toggle .fa-sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .fa-moon { display: none; }
+    :root[data-theme="light"] .theme-toggle .fa-sun  { display: block; }
 
     /* ============================================================
        HERO SECTION
@@ -930,7 +975,7 @@
 
     .product-item:hover { background: var(--surface2); }
 
-    .product-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+    .product-item i { font-size: 2.5rem; margin-bottom: 1rem; }
 
     .product-name {
       font-family:    'Barlow Condensed', sans-serif;
@@ -977,7 +1022,7 @@
       background:        rgba(26, 122, 110, 0.08);
     }
 
-    .why-ico        { font-size: 1.8rem; flex-shrink: 0; }
+    .why-ico i      { font-size: 1.8rem; flex-shrink: 0; }
 
     .why-text-title {
       font-family:    'Barlow Condensed', sans-serif;
@@ -1069,7 +1114,7 @@
 
     .contact-item:hover { border-color: var(--teal-glow); }
 
-    .contact-ico { font-size: 1.5rem; flex-shrink: 0; }
+    .contact-ico i  { font-size: 1.5rem; flex-shrink: 0; }
 
     .contact-detail-label {
       font-family:    'Barlow Condensed', sans-serif;
@@ -1357,6 +1402,12 @@
       <li><a href="#why">Why Us</a></li>
       <li><a href="#contact" class="nav-cta">Contact Us</a></li>
     </ul>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
 
   </nav>
 
@@ -2035,22 +2086,22 @@
     </div>
 
     <div class="products-grid fade-in">
-      <div class="product-item"><div class="product-emoji">🏠</div><div class="product-name">Outdoor Unit</div></div>
-      <div class="product-item"><div class="product-emoji">🔥</div><div class="product-name">Fire Damper</div></div>
-      <div class="product-item"><div class="product-emoji">⭕</div><div class="product-name">Round Type Damper</div></div>
-      <div class="product-item"><div class="product-emoji">▬</div><div class="product-name">Bar Grill</div></div>
-      <div class="product-item"><div class="product-emoji">🔗</div><div class="product-name">Duct Connector</div></div>
-      <div class="product-item"><div class="product-emoji">📦</div><div class="product-name">Plenum Box</div></div>
-      <div class="product-item"><div class="product-emoji">🌐</div><div class="product-name">Round Diffuser</div></div>
-      <div class="product-item"><div class="product-emoji">⬜</div><div class="product-name">Square Diffuser</div></div>
-      <div class="product-item"><div class="product-emoji">🔇</div><div class="product-name">Sound Attenuator</div></div>
-      <div class="product-item"><div class="product-emoji">🪟</div><div class="product-name">Grill</div></div>
-      <div class="product-item"><div class="product-emoji">🔲</div><div class="product-name">Duct End Cap</div></div>
-      <div class="product-item"><div class="product-emoji">↕️</div><div class="product-name">Rectangle Damper</div></div>
-      <div class="product-item"><div class="product-emoji">⚙️</div><div class="product-name">Motorised Vol. Damper (Rect.)</div></div>
-      <div class="product-item"><div class="product-emoji">🔄</div><div class="product-name">Motorised Vol. Damper (Round)</div></div>
-      <div class="product-item"><div class="product-emoji">🏢</div><div class="product-name">Cassette Unit</div></div>
-      <div class="product-item"><div class="product-emoji">🏗️</div><div class="product-name">Roof Top Unit</div></div>
+      <div class="product-item"><i class="fas fa-home"></i><div class="product-name">Outdoor Unit</div></div>
+      <div class="product-item"><i class="fas fa-fire"></i><div class="product-name">Fire Damper</div></div>
+      <div class="product-item"><i class="fas fa-circle"></i><div class="product-name">Round Type Damper</div></div>
+      <div class="product-item"><i class="fas fa-minus"></i><div class="product-name">Bar Grill</div></div>
+      <div class="product-item"><i class="fas fa-link"></i><div class="product-name">Duct Connector</div></div>
+      <div class="product-item"><i class="fas fa-box"></i><div class="product-name">Plenum Box</div></div>
+      <div class="product-item"><i class="fas fa-globe"></i><div class="product-name">Round Diffuser</div></div>
+      <div class="product-item"><i class="fas fa-square"></i><div class="product-name">Square Diffuser</div></div>
+      <div class="product-item"><i class="fas fa-volume-mute"></i><div class="product-name">Sound Attenuator</div></div>
+      <div class="product-item"><i class="fas fa-window-maximize"></i><div class="product-name">Grill</div></div>
+      <div class="product-item"><i class="fas fa-square"></i><div class="product-name">Duct End Cap</div></div>
+      <div class="product-item"><i class="fas fa-arrows-alt-v"></i><div class="product-name">Rectangle Damper</div></div>
+      <div class="product-item"><i class="fas fa-cog"></i><div class="product-name">Motorised Vol. Damper (Rect.)</div></div>
+      <div class="product-item"><i class="fas fa-sync"></i><div class="product-name">Motorised Vol. Damper (Round)</div></div>
+      <div class="product-item"><i class="fas fa-building"></i><div class="product-name">Cassette Unit</div></div>
+      <div class="product-item"><i class="fas fa-tools"></i><div class="product-name">Roof Top Unit</div></div>
     </div>
 
   </section>
@@ -2070,35 +2121,35 @@
 
       <div class="why-list">
         <div class="why-item">
-          <div class="why-ico">✅</div>
+          <div class="why-ico"><i class="fas fa-check"></i></div>
           <div>
             <div class="why-text-title">We Do What We Promise</div>
             <p class="why-text-desc">Your needs come first. We maintain transparency at every stage — from quotation to commissioning and beyond.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-ico">⚡</div>
+          <div class="why-ico"><i class="fas fa-bolt"></i></div>
           <div>
             <div class="why-text-title">Emergency Response</div>
             <p class="why-text-desc">When you have an emergency, we can get to you fast. 24/7 breakdown support with trained field technicians across Kerala.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-ico">🎓</div>
+          <div class="why-ico"><i class="fas fa-graduation-cap"></i></div>
           <div>
             <div class="why-text-title">Expert Technicians</div>
             <p class="why-text-desc">Our team is trained in the latest HVAC technology. Whatever brand or system type you have — we've worked on it.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-ico">🤝</div>
+          <div class="why-ico"><i class="fas fa-handshake"></i></div>
           <div>
             <div class="why-text-title">Trusted Business Partner</div>
             <p class="why-text-desc">We act as your long-term advisor — helping you make informed repair-or-replace decisions and plan for future capacity needs.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-ico">💬</div>
+          <div class="why-ico"><i class="fas fa-comments"></i></div>
           <div>
             <div class="why-text-title">Clear Communication</div>
             <p class="why-text-desc">We hire friendly professional staff who explain technical things in terms you understand — no jargon, no confusion.</p>
@@ -2147,7 +2198,7 @@
 
         <!-- EDIT: PHONE -->
         <div class="contact-item">
-          <div class="contact-ico">📞</div>
+          <div class="contact-ico"><i class="fas fa-phone"></i></div>
           <div>
             <div class="contact-detail-label">Phone</div>
             <div class="contact-detail-val">
@@ -2159,7 +2210,7 @@
 
         <!-- EDIT: EMAIL -->
         <div class="contact-item">
-          <div class="contact-ico">✉️</div>
+          <div class="contact-ico"><i class="fas fa-envelope"></i></div>
           <div>
             <div class="contact-detail-label">Email</div>
             <div class="contact-detail-val">
@@ -2170,7 +2221,7 @@
 
         <!-- EDIT: ADDRESS -->
         <div class="contact-item">
-          <div class="contact-ico">📍</div>
+          <div class="contact-ico"><i class="fas fa-map-marker-alt"></i></div>
           <div>
             <div class="contact-detail-label">Address</div>
             <div class="contact-detail-val">
@@ -2182,7 +2233,7 @@
 
         <!-- Website -->
         <div class="contact-item">
-          <div class="contact-ico">🌐</div>
+          <div class="contact-ico"><i class="fas fa-globe"></i></div>
           <div>
             <div class="contact-detail-label">Website</div>
             <div class="contact-detail-val">
@@ -2193,34 +2244,34 @@
 
         <!-- EDIT: SOCIAL — replace # with your actual profile URLs -->
         <div class="contact-item">
-          <div class="contact-ico">📲</div>
+          <div class="contact-ico"><i class="fas fa-share-alt"></i></div>
           <div>
             <div class="contact-detail-label">Follow Us</div>
             <div class="social-links">
 
               <!-- Instagram -->
-              <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" class="social-link" title="Instagram">
+              <a href="https://www.instagram.com/aloft_hvac?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-link" title="Instagram">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
                 </svg>
               </a>
 
               <!-- LinkedIn -->
-              <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+              <a href="https://www.linkedin.com/posts/aloft-centralised-cooling-solutions_aloft-centralised-cooling-solutions-linkedin-activity-7421801636638978048-0NcX?utm_source=share&utm_medium=member_android&rcm=ACoAABUuOKEBovkE1ptwXOqOoLBDiVyvllTyxK0" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
                 </svg>
               </a>
 
               <!-- Twitter / X -->
-              <a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener" class="social-link" title="Twitter / X">
+              <a href="https://x.com/Aloftac" target="_blank" rel="noopener" class="social-link" title="Twitter / X">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
 
               <!-- Facebook -->
-              <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" class="social-link" title="Facebook">
+              <a href="https://www.facebook.com/share/1HuNtMvP2W/" target="_blank" rel="noopener" class="social-link" title="Facebook">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
@@ -2246,64 +2297,144 @@
 
       </div><!-- end .contact-info -->
 
-      <!-- EDIT: FORM — update form fields or action URL as needed -->
-      <div class="contact-form">
-        <div id="formArea">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">First Name</label>
-              <input type="text" class="form-input" placeholder="Your name" id="fname" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Last Name</label>
-              <input type="text" class="form-input" placeholder="Your surname" id="lname" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" class="form-input" placeholder="you@company.com" id="email" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" id="phone" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Service Required</label>
-            <select class="form-select" id="service">
-              <option value="" disabled selected>Select a service...</option>
-              <option>HVAC Contracting — New Installation</option>
-              <option>Chiller Installation / Maintenance</option>
-              <option>VRV / VRF System</option>
-              <option>Package / Rooftop Unit</option>
-              <option>Air Handling Unit (AHU)</option>
-              <option>Duct Supply / Fabrication</option>
-              <option>BMS Integration</option>
-              <option>Emergency Repair</option>
-              <option>Annual Maintenance Contract (AMC)</option>
-              <option>Other / General Enquiry</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Project Details</label>
-            <textarea
-              class="form-textarea"
-              placeholder="Describe your project, space size, current system, or specific requirements..."
-              id="message"
-            ></textarea>
-          </div>
-          <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
-        </div><!-- end #formArea -->
-
-        <div class="form-success" id="formSuccess">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
-          <div>Thank you! We'll be in touch within 24 hours.</div>
-          <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.05em;">
-            Our team has received your enquiry.
-          </div>
+     <!-- CONTACT FORM -->
+<div class="contact-form">
+  <form id="contactForm" action="https://formspree.io/f/xnjgvrlz" method="POST">
+    <div id="formArea">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fname">First Name</label>
+          <input
+            type="text"
+            class="form-input"
+            id="fname"
+            name="firstName"
+            placeholder="Your name"
+            required
+          />
         </div>
-      </div><!-- end .contact-form -->
 
-    </div><!-- end .contact-layout -->
+        <div class="form-group">
+          <label class="form-label" for="lname">Last Name</label>
+          <input
+            type="text"
+            class="form-input"
+            id="lname"
+            name="lastName"
+            placeholder="Your surname"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input
+          type="email"
+          class="form-input"
+          id="email"
+          name="_replyto"
+          placeholder="you@company.com"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone">Phone Number</label>
+        <input
+          type="tel"
+          class="form-input"
+          id="phone"
+          name="phone"
+          placeholder="+91 XXXXX XXXXX"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="service">Service Required</label>
+        <select class="form-select" id="service" name="service" required>
+          <option value="" disabled selected>Select a service...</option>
+          <option>HVAC Contracting — New Installation</option>
+          <option>Chiller Installation / Maintenance</option>
+          <option>VRV / VRF System</option>
+          <option>Package / Rooftop Unit</option>
+          <option>Air Handling Unit (AHU)</option>
+          <option>Duct Supply / Fabrication</option>
+          <option>BMS Integration</option>
+          <option>Emergency Repair</option>
+          <option>Annual Maintenance Contract (AMC)</option>
+          <option>Other / General Enquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Project Details</label>
+        <textarea
+          class="form-textarea"
+          id="message"
+          name="message"
+          placeholder="Describe your project, space size, current system, or specific requirements..."
+          required
+        ></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New enquiry from website" />
+
+      <button type="submit" class="form-submit" id="submitBtn">
+        Send Enquiry →
+      </button>
+    </div>
+
+    <div class="form-success" id="formSuccess" style="display: none;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+      <div>Thank you! We'll be in touch within 24 hours.</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.05em;">
+        Our team has received your enquiry.
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formArea = document.getElementById("formArea");
+    const formSuccess = document.getElementById("formSuccess");
+    const submitBtn = document.getElementById("submitBtn");
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        headers: {
+          Accept: "application/json"
+        },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        formArea.style.display = "none";
+        formSuccess.style.display = "block";
+      } else {
+        const data = await response.json().catch(() => null);
+        alert(
+          (data && data.errors && data.errors[0] && data.errors[0].message) ||
+          "Something went wrong. Please try again."
+        );
+      }
+    } catch (error) {
+      alert("Network error. Please try again.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Enquiry →";
+    }
+  });
+</script>
 
   </section>
 
@@ -2452,6 +2583,35 @@
           : '';
       });
     });
+
+    /* ── Theme Toggle ────────────────────────────────────────── */
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+      updateToggleIcon(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleIcon(newTheme);
+    });
+
+    function updateToggleIcon(theme) {
+      const icon = themeToggle.querySelector('i');
+      if (theme === 'light') {
+        icon.className = 'fas fa-sun';
+      } else {
+        icon.className = 'fas fa-moon';
+      }
+    }
 
   </script>
 
